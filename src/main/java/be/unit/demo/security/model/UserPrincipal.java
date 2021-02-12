@@ -1,4 +1,4 @@
-package be.unit.demo.security;
+package be.unit.demo.security.model;
 
 import be.unit.demo.entity.User;
 import org.springframework.security.core.GrantedAuthority;
