@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class Order {
 
     @Id
-    private int id;
+    private long id;
 
     private int trackingNumber;
 
@@ -21,11 +21,11 @@ public class Order {
         this.trackingNumber = trackingNumber;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

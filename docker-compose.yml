@@ -11,7 +11,7 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=Test1234
     ports:
-      - 3306
+      - 3306:3306
 
   demo-app:
     image: abdelkal/demo:0.0.1-SNAPSHOT

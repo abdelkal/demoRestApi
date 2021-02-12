@@ -8,7 +8,7 @@ import java.util.Date;
 public class Customer {
 
     @Id
-    private int id;
+    private long id;
 
     private String firtsName;
 
@@ -26,11 +26,11 @@ public class Customer {
         this.birthDate = birthDate;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
