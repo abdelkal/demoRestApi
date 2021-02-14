@@ -1,5 +1,6 @@
 package be.unit.demo.controller;
 
+import be.unit.demo.exception.UserNotFoundException;
 import be.unit.demo.security.model.AuthenticationRequest;
 import be.unit.demo.security.model.AuthenticationResponse;
 import be.unit.demo.security.service.JwtUtil;
@@ -29,11 +30,11 @@ public class LoginController {
     If the user is successfully authenticated (via JPA), a token is generated and sent to the user
      */
     @PostMapping(path = "/login")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
         } catch (BadCredentialsException ex) {
-            throw new Exception("Incorrect username or password");
+            throw new UserNotFoundException("Incorrect username or password");
         }
 
         final UserPrincipal userPrincipal = userPrincipalDetailsService.loadUserByUsername(authenticationRequest.getUsername());
