@@ -1,4 +1,4 @@
-package be.unit.demo.exception;
+package be.unit.demo.exception.handler;
 
 import java.util.Date;
 
