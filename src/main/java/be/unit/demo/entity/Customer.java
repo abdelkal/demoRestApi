@@ -1,27 +1,31 @@
 package be.unit.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Customer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String firtsName;
+    private String firstName;
 
     private String lastName;
 
     private Date birthDate;
 
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
+
     public Customer() {
     }
 
-    public Customer(int id, String firtsName, String lastName, Date birthDate) {
+    public Customer(int id, String firstName, String lastName, Date birthDate) {
         this.id = id;
-        this.firtsName = firtsName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
     }
@@ -34,12 +38,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getFirtsName() {
-        return firtsName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirtsName(String firtsName) {
-        this.firtsName = firtsName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
